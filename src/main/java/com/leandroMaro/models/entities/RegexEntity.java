@@ -8,11 +8,12 @@ import java.util.Objects;
  */
 
 @Entity
-@Table(name = "WordsAndExpresions")
+@Table(name = "WordsAndExpressions")
 public class RegexEntity {
 
-    // PRIVATE FIELDS
+
     // ------------------------
+    // PRIVATE FIELDS
     // ------------------------
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,6 +22,21 @@ public class RegexEntity {
     private String word;
 
     private String regularExpresions;
+
+
+    public RegexEntity(long id) {
+        this.id = id;
+    }
+
+    public RegexEntity() {
+    }
+
+
+
+    public RegexEntity(String word, String regularExpresions) {
+        this.word = word;
+        this.regularExpresions = regularExpresions;
+    }
 
     public long getId() {
         return id;
