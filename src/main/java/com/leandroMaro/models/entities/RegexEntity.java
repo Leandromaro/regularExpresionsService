@@ -8,7 +8,7 @@ import java.util.Objects;
  */
 
 @Entity
-@Table(name = "WordsAndExpressions")
+@Table(name = "WordsAndExpresions")
 public class RegexEntity {
 
 
@@ -21,7 +21,7 @@ public class RegexEntity {
 
     private String word;
 
-    private String regularExpresions;
+    private String regularExpresion;
 
 
     public RegexEntity(long id) {
@@ -33,9 +33,9 @@ public class RegexEntity {
 
 
 
-    public RegexEntity(String word, String regularExpresions) {
+    public RegexEntity(String word, String regularExpresion) {
         this.word = word;
-        this.regularExpresions = regularExpresions;
+        this.regularExpresion = regularExpresion;
     }
 
     public long getId() {
@@ -50,12 +50,12 @@ public class RegexEntity {
         this.word = word;
     }
 
-    public String getRegularExpresions() {
-        return regularExpresions;
+    public String getRegularExpresion() {
+        return regularExpresion;
     }
 
-    public void setRegularExpresions(String regularExpresions) {
-        this.regularExpresions = regularExpresions;
+    public void setRegularExpresions(String regularExpresion) {
+        this.regularExpresion = regularExpresion;
     }
 
     @Override
@@ -65,12 +65,12 @@ public class RegexEntity {
         RegexEntity that = (RegexEntity) o;
         return id == that.id &&
                 Objects.equals(word, that.word) &&
-                Objects.equals(regularExpresions, that.regularExpresions);
+                Objects.equals(regularExpresion, that.regularExpresion);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, word, regularExpresions);
+        return Objects.hash(id, word, regularExpresion);
     }
 
     @Override
@@ -78,7 +78,7 @@ public class RegexEntity {
         return "RegexEntity{" +
                 "id=" + id +
                 ", word='" + word + '\'' +
-                ", regularExpresions='" + regularExpresions + '\'' +
+                ", regularExpresion='" + regularExpresion + '\'' +
                 '}';
     }
 }
