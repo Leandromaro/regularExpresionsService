@@ -44,8 +44,7 @@ public class RegularExpressionController {
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity<RegexEntity> create(@RequestBody RegexEntity regexParams) throws PersistenceException {
-        RegexEntity regexEntity = new RegexEntity();
-        regexEntity = regexService.create(regexParams);
+        RegexEntity regexEntity = regexService.create(regexParams);
         return new ResponseEntity<RegexEntity>(regexEntity,HttpStatus.CREATED);
     }
 

@@ -1,5 +1,7 @@
 package com.leandroMaro.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,10 +18,6 @@ import java.util.Objects;
 @Table(name = "WordsAndExpresions")
 
 public class RegexEntity implements Serializable{
-
-    // ------------------------
-    // PRIVATE FIELDS
-    // ------------------------
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

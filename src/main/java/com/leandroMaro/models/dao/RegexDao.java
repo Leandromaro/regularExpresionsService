@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceException;
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class RegexDao {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public void create(RegexEntity regex) {
+    public void create(RegexEntity regex) throws PersistenceException {
         entityManager.persist(regex);
         return;
     }
@@ -42,7 +43,7 @@ public class RegexDao {
         return entityManager.createQuery("from RegexEntity").getResultList();
     }
 
-    public RegexEntity getById(long id) {
+    public RegexEntity getById(Integer id) {
         return entityManager.find(RegexEntity.class, id);
     }
 

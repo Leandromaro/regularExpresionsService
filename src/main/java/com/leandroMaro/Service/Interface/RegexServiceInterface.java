@@ -32,4 +32,6 @@ public interface RegexServiceInterface {
      * values in the request body.
      */
     RegexEntity create(RegexEntity regexEntity) throws PersistenceException;
+
+
 }
