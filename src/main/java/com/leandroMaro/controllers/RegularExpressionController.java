@@ -65,8 +65,9 @@ public class RegularExpressionController {
      */
     @RequestMapping(value = "/update", method = RequestMethod.PUT)
     @ResponseBody
-    public String updateName(@RequestBody RegexEntity regexEntity) {
-        return regexService.updateRegex(regexEntity);
+    public ResponseEntity<RegexEntity> updateRegex(@RequestBody RegexEntity regexEntity) throws TransactionSystemException {
+        RegexEntity entity = regexService.updateRegex(regexEntity);
+        return new ResponseEntity<RegexEntity>(entity,HttpStatus.CREATED);
     }
 
     /**
@@ -74,7 +75,7 @@ public class RegularExpressionController {
      * @param response HttpStatus.BAD_REQUEST
      * @throws IOException
      */
-    @ExceptionHandler({MissingServletRequestParameterException.class,TransactionSystemException.class,IllegalArgumentException.class, NullPointerException.class})
+    @ExceptionHandler({MissingServletRequestParameterException.class,TransactionSystemException.class,IllegalArgumentException.class, NullPointerException.class, PersistenceException.class})
     void handleBadRequests(HttpServletResponse response) throws IOException {
         response.sendError(HttpStatus.BAD_REQUEST.value());
     }

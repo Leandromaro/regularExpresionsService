@@ -39,18 +39,16 @@ public class RegexService implements RegexServiceInterface{
     }
 
     @Override
-    public String updateRegex(RegexEntity regexEntity) throws TransactionSystemException {
+    public RegexEntity updateRegex(RegexEntity regexEntity) throws TransactionSystemException {
         try {
-            if (this.exists(regexEntity.getId())) {
+            if (regexEntity.getId() == null) {
+                throw new TransactionSystemException("Invalid id to update");
+            }else {
                 regexDao.update(regexEntity);
-                return "Regex successfully updated!";
-            }else{
-                return "Error updating the regex";
             }
+            return regexEntity;
         } catch (TransactionSystemException ex) {
             throw ex;
-        } catch (Exception ex) {
-            return "Error updating the regex " + ex.toString();
         }
     }
 
@@ -58,10 +56,5 @@ public class RegexService implements RegexServiceInterface{
     public RegexEntity create(RegexEntity regexEntity) throws PersistenceException {
         regexDao.create(regexEntity);
         return regexEntity;
-    }
-
-
-    private Boolean exists(Integer id) throws TransactionSystemException {
-        return regexDao.getById(id).toString().isEmpty();
     }
 }

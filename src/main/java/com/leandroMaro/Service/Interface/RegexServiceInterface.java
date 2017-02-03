@@ -25,7 +25,7 @@ public interface RegexServiceInterface {
     /**
      * Update the regular expression and the name for the regular expression identified by the passed id.
      */
-    String updateRegex(RegexEntity regexEntity) throws TransactionSystemException;;
+    RegexEntity updateRegex(RegexEntity regexEntity) throws TransactionSystemException;;
 
     /**
      * Create a new regex with an auto-generated id, name and regex are passed as
